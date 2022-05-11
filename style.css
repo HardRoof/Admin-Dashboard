@@ -1,1 +1,256 @@
 @import url(./normalize.css);
+
+@font-face {
+  font-family: western;
+  src: url(./fonts/Carnevalee\ Freakshow.ttf);
+}
+
+:root {
+  font-size: 62.5%;
+  --brown-bg-color:#a16107b6;
+  --gray-bg-color:#e4e4e7;
+  --shadow: 1px 2px 4px rgba(0, 0, 0, 0.51);
+}
+
+/* Big container */
+body {
+  min-height: 100vh;
+  font-size: 1.6rem;
+  font-family: western, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+li, ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* HEADER */
+header {
+  display: grid;
+  grid-template: auto 1fr / 2fr 1fr;
+  padding: 2rem;
+  font-size: 2rem;
+  gap: 1rem 2rem;
+  background-image: url(./imgs/paper-texture-unsplash.jpeg);
+  background-size: cover;
+  box-shadow: var(--shadow);
+  position: relative; /* To render above neighbor div */
+  z-index: 10; /* To render above neighbor div */
+}
+
+input {
+  width: 80%;
+  max-width: 600px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background-color: var(--gray-bg-color);
+}
+
+header > div {
+  display: flex;
+  align-items: center;
+}
+
+.divs-in-header:nth-child(1) {
+  gap: 0.5rem;
+}
+
+.divs-in-header:nth-child(even) {
+  justify-self: end;
+  gap: 2rem;
+}
+
+#profile {
+  border-radius: 50%; 
+  height: 100%;
+}
+
+.divs-in-header:nth-child(3) {
+  gap: 2rem;
+}
+
+.divs-in-header:nth-child(3) p {
+  margin: 0;
+  line-height: 1.3;
+  min-width: 24rem;
+  font-size: 2.2rem;
+}
+
+button{
+  font-size: 1.4rem;
+  padding: 0.6em 1.6em;
+  border-radius: 6px;
+  letter-spacing: 0.1rem;
+  background-color: var(--brown-bg-color);
+}
+
+/* Sidebar */
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  font-size: 2.6rem;
+  padding: 2rem 0 0 1rem;
+  background-color: var(--brown-bg-color);
+}
+
+nav ul li,
+nav span {
+  display: flex;
+  gap: 1.2rem;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+nav span {
+  font-size: 3.8rem;
+  display: flex;
+  align-items: center;
+}
+
+nav span img {
+  width: 20%;
+}
+
+/* Body center */
+main {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1rem 2rem;
+  padding: 2rem;
+  grid-template-rows: auto 1fr;
+  background-color: var(--gray-bg-color);
+}
+
+main p {
+  grid-column: 1 /3;
+  font-size: 2rem;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22rem,1fr));
+  gap: 2rem;
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.card {
+  background-color: aqua;
+  border-style: none none none solid;
+  border-color: var(--brown-bg-color);
+  border-left-width: 8px;
+  border-radius: 6px;
+  min-height: 20rem;
+  padding: 1.2rem;
+  font-family: Apple Chancery, cursive;
+  line-height: 1.4;
+  background-image: url(./imgs/paper-texture-unsplash.jpeg);
+  box-shadow: var(--shadow);
+}
+
+.card-tittle {
+  font-weight: bolder;
+  font-size: 2.4rem;
+  letter-spacing: 0.1rem;
+  display:inline-block; /* ps: we can't apply margin vertically to inline elements. */
+  margin-bottom: 1rem;
+}
+
+.subtitles {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+/* Body right side */
+.announcements-trending {
+  grid-area: 1 / 2 / 3 / 3;
+}
+
+.announcements-trending .subtitles {
+  margin-bottom: 1rem;
+}
+
+h4 {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.8rem;
+}
+
+.announcements-border {
+  width: 75%;
+  border: solid 1px rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-self: center;
+  margin: 1.2rem 0;
+}
+
+#announcements,
+#trending {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+  background-color: var(--brown-bg-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.announcements-trending .subtitles:last-of-type{
+  margin-top: 4rem;
+}
+
+#trending {
+  gap: 1rem;
+}
+
+#trending img {
+  border-radius: 50%; 
+}
+
+#trending > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Pseudo classes */
+
+li:hover,
+.divs-in-header:nth-child(2) > *:hover,
+#announcements > div:hover,
+#trending > *:hover {
+  cursor: pointer;
+}
+
+
+li:hover {
+  text-decoration: underline;
+}
+
+.card:hover,
+li:active,
+#announcements > div:active,
+#trending > *:active {
+  transform: scale(1.03);
+}
+
+
+/* Increasing duration of active */
+.divs-in-header:nth-child(2) > * {
+  transition: 0s 0.3s;
+}
+
+.divs-in-header:nth-child(2) > *:active {
+  transition: 0s;
+  transform: scale(1.2);
+}
