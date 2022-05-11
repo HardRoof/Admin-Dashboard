@@ -23,6 +23,7 @@ body {
   min-height: 100vh;
   /* grid-template-columns: min(20%, 32rem) 4fr; min() returns the smallest of all the values passed in */
   grid-template-columns: clamp(18.3rem, 20%, 32rem) 4fr;
+  background-color: var(--gray-bg-color);
 }
 
 li, ul {
@@ -148,7 +149,6 @@ main p {
 }
 
 .card {
-  background-color: aqua;
   border-style: none none none solid;
   border-color: var(--brown-bg-color);
   border-left-width: 8px;
