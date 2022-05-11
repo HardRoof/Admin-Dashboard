@@ -226,7 +226,7 @@ h4 {
 
 /* Pseudo classes */
 li:hover,
-#magnifier:hover
+#magnifier:hover,
 .divs-in-header:nth-child(2) > *:hover,
 #announcements > div:hover,
 #trending > *:hover {
